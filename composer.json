@@ -1,0 +1,19 @@
+{
+    "name": "AmbitionBoxJournal",
+    "description": "Assignment to create journal",
+    "type": "project",
+    "authors": [
+        {
+            "name": "manish-chauhan"
+        }
+    ],
+    "require": {
+        "symfony/console": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "src\\" : "src",
+            "bin\\": "bin/"
+        }
+    }
+}
