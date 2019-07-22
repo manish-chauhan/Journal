@@ -74,22 +74,28 @@ class JournalApp{
         $user_data = Utils::getUser();
         $user_journal_file_path  = !empty($_ENV['users_journals_path']) ? $_ENV['users_journals_path'] : '';
         $user_journal_file_path  = ( !empty($user_journal_file_path) && !empty($user_data['user_name']) ) ? $user_journal_file_path.DIRECTORY_SEPARATOR.$user_data['user_name'] : '';
+        $key = !empty($user_data['user_token']) ? user_data['user_token'] : '';  
         $file_name = uniqid().'.txt';
         if(!empty($user_journal_file_path) && !file_exists($user_journal_file_path)){
             mkdir($user_journal_file_path , 0755 , true);
         }
         $user_journal_file_path = $user_journal_file_path.DIRECTORY_SEPARATOR.$file_name;
         file_put_contents($user_journal_file_path, $jounal_data);
-        
+        Utils::encryptFile($user_journal_file_path, $key, $user_journal_file_path . '.enc');
+        unlink($user_journal_file_path);
         //Mark entry in queue
         $queue_inputs['file_name'] = $file_name;
         $queue_inputs['file_description'] = trim(preg_replace('/\s\s+/', ' ', substr($jounal_data, 0, 15) ) );
-        $queue_inputs['file_path'] = $user_journal_file_path;
+        $queue_inputs['file_path'] = $user_journal_file_path.'.enc';
         $this->journalQueueObj->push($queue_inputs);
+        
     }
     
     protected function viewUserJounal(){
         $current_qeue_state =  $this->journalQueueObj->getJurnolQueueData();
+        print_r(PHP_EOL);
+        print_r(PHP_EOL);
+        print_r(PHP_EOL);
         if(empty($current_qeue_state)){
             print_r(PHP_EOL."******************No Journal Found*********************************".PHP_EOL);
             return true;
@@ -103,6 +109,10 @@ class JournalApp{
             print_r($sno.'  | '.$file_description.' | '.$created_at.PHP_EOL);
             
         }
+        print_r(PHP_EOL);
+        print_r(PHP_EOL);
+        print_r(PHP_EOL);
+        
     }
     
     protected function initilizeJurnalQueue(){

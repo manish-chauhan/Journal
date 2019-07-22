@@ -10,4 +10,4 @@ define('FILE_ENCRYPTION_BLOCKS', 10000);
 
 
 //Journal Constants
-if (!defined('MAX_JOURNALS')) define('MAX_JOURNALS', 3);
+if (!defined('MAX_JOURNALS')) define('MAX_JOURNALS', 50);

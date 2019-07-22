@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/AmbitionBoxJournal/bin/command/testCommand.php</file>
+            <file>file:/var/www/AmbitionBoxJournal/src/libraries/Utils.php</file>
+            <file>file:/var/www/AmbitionBoxJournal/bin/contants.php</file>
+            <file>file:/var/www/AmbitionBoxJournal/src/User.php</file>
+            <file>file:/var/www/AmbitionBoxJournal/bin/.env.php</file>
+            <file>file:/var/www/AmbitionBoxJournal/bin/command/CreateUserCommand.php</file>
+            <file>file:/var/www/AmbitionBoxJournal/bin/command/LoginUserCommand.php</file>
+            <file>file:/var/www/AmbitionBoxJournal/src/TestHelloWord.php</file>
+            <file>file:/var/www/AmbitionBoxJournal/src/JournalApp.php</file>
+            <file>file:/var/www/AmbitionBoxJournal/bin/start.php</file>
+            <file>file:/var/www/AmbitionBoxJournal/composer.json</file>
+            <file>file:/var/www/AmbitionBoxJournal/src/JournalQueue.php</file>
+        </group>
+    </open-files>
 </project-private>

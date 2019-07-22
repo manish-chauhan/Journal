@@ -53,6 +53,7 @@ class User {
         $new_user_data = [];
         $new_user_data[$user_creation_inputs['user_name']] = [];
         $new_user_data[$user_creation_inputs['user_name']]['password'] = $user_creation_inputs['password'];
+        $new_user_data[$user_creation_inputs['user_name']]['user_token'] = Utils::generateRandomString(16);
         $new_user_data = array_merge($new_user_data , $get_all_user_details);
         $user_data = serialize($new_user_data);
         file_put_contents($file_path, $user_data);

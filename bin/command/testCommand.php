@@ -7,6 +7,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use src\TestHelloWord;
 use src\libraries\Utils;
+use \Exception;
 
 class testCommand extends Command {
     protected function configure() {
@@ -18,14 +19,20 @@ class testCommand extends Command {
     }
     
     protected function execute(InputInterface $input, OutputInterface $output) {
-        $key = 'my secret key';
-        $file_path = __DIR__.'/test.txt';
-        $decryption = __DIR__.'/desc.txt';
-        print_r($file_path);
-        
-        Utils::encryptFile($file_path , $key , $file_path);
-        Utils::decryptFile($file_path , $key , $decryption);
-        print_r('done');
+        try{
+            $a = $b;
+            $fileName = __DIR__.'/testfile.txt';
+            $key = 'my secret key';
+            file_put_contents($fileName, 'Hello World, here I am.');
+    //        Utils::encryptFile($fileName, $key, $fileName . '.enc');
+    //        Utils::decryptFile($fileName . '.enc', $key, $fileName . '.dec');
+
+            print_r('done');
+            
+        } catch (\ErrorException $ex) {
+            print_r('-------++++++++++++++++-exception---');
+//            Utils::exceptionError($ex);
+        }
     }
     
     
