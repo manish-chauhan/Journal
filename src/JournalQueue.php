@@ -31,7 +31,7 @@ class JournalQueue{
         $queue_data[$queue_inputs['file_name']]['file_description'] = $queue_inputs['file_description'];
         $queue_data[$queue_inputs['file_name']]['time_stamp'] = date("M,d,Y h:i:s A");
         $this->queue_data = array_merge($this->queue_data , $queue_data);
-        file_put_contents($this->queue_file_path, serialize($queue_data));
+        file_put_contents($this->queue_file_path, serialize($this->queue_data));
         return true;
     }
     
