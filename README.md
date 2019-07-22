@@ -1,7 +1,13 @@
 # Journal
 
+## version
+Php5
+
 ## Installation
 composer update
+edit .env.php to change paths<br/>
+  'user_file_path' => __DIR__.'/user_data.text',<br/>
+  'users_journals_path' => __DIR__.'/../UsersJournal',<br/>
 
 ## Usage
 1.create user
