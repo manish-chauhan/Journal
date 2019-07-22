@@ -18,6 +18,10 @@ class CreateUserCommand extends Command {
     
     protected function execute(InputInterface $input, OutputInterface $output) {
         $user_name = $input->getArgument('user_name');
+        if(! $this->userNameValidaton($user_name)){
+            print_r('User name should not contain any space or special characte'.PHP_EOL);
+            die;
+        }
         print_r('Enter Password :');
         $this->hide_term();
 	$password = rtrim(fgets(STDIN), PHP_EOL);
@@ -47,6 +51,14 @@ class CreateUserCommand extends Command {
         if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN')
             system('stty echo');
     }
+    protected function userNameValidaton($userName){
+        $pattern = "/^[a-zA-Z0-9]+$/";
+        if(preg_match($pattern, $userName)){
+           return true;
+        }
+        return false;
+    }
+    
 }
 
 

@@ -89,4 +89,6 @@ class User {
     protected function setSessionData($user_login_inputs){
         $_SESSION['user_name'] =  $user_login_inputs['user_name'];
     }
+    
+    
 }
